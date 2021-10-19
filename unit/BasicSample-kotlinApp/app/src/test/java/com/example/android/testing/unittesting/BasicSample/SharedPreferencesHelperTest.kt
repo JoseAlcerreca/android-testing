@@ -21,6 +21,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.anyLong
@@ -28,14 +29,18 @@ import org.mockito.ArgumentMatchers.anyString
 import org.mockito.ArgumentMatchers.eq
 import org.mockito.BDDMockito.given
 import org.mockito.Mock
+import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.junit.MockitoTestRule
 import java.util.Calendar
 
 /**
  * Unit tests for the [SharedPreferencesHelper] that mocks [SharedPreferences].
  */
-@RunWith(MockitoJUnitRunner::class)
 class SharedPreferencesHelperTest {
+
+    @get:Rule
+    val rule = MockitoJUnit.rule()
 
     private val TEST_NAME = "Test name"
     private val TEST_EMAIL = "test@email.com"

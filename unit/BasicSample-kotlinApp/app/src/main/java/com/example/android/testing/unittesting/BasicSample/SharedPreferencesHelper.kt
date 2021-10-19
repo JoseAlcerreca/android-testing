@@ -35,10 +35,10 @@ class SharedPreferencesHelper(private val sharedPreferences: SharedPreferences) 
     // Get data from the SharedPreferences.
     // Create and fill a SharedPreferenceEntry model object.
     fun getPersonalInfo(): SharedPreferenceEntry {
-        val name = sharedPreferences.getString(KEY_NAME, "")
+        val name = sharedPreferences.getString(KEY_NAME, "") ?: "Error"
         val dobMillis = sharedPreferences.getLong(KEY_DOB, Calendar.getInstance().timeInMillis)
         val dateOfBirth = Calendar.getInstance().apply { timeInMillis = dobMillis }
-        val email = sharedPreferences.getString(KEY_EMAIL, "")
+        val email = sharedPreferences.getString(KEY_EMAIL, "") ?: "Error"
         return SharedPreferenceEntry(name, dateOfBirth, email)
     }
 
